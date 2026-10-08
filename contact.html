@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Al Saudi Pure Drinking Water</title>
+  <meta name="description" content="Get in touch with Al Saudi Pure Drinking Water. Contact us for inquiries, bulk orders, distribution partnerships and more.">
+
+  <meta property="og:title" content="Contact Us | Al Saudi Pure Drinking Water">
+  <meta property="og:description" content="Reach out for inquiries, distribution, or any questions about Al Saudi Pure Drinking Water.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.alsaudiwater.com/contact.html">
+  <meta property="og:image" content="assets/images/products/bottle-1-5l.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    .contact-hero {
+      background: var(--gradient-hero);
+      padding: calc(72px + var(--space-4xl)) 0 var(--space-4xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; width: 100%;
+      height: 60px;
+      background: var(--color-white);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .contact-hero__content { position: relative; z-index: 2; }
+
+    /* Contact section */
+    .contact-section {
+      background: var(--color-white);
+      padding: var(--space-5xl) 0;
+    }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-3xl);
+      align-items: start;
+    }
+
+    /* Left: info panel */
+    .contact-info-panel { }
+    .contact-info-panel h2 {
+      font-size: var(--fs-h2);
+      color: var(--color-deep-blue);
+      margin-bottom: var(--space-sm);
+    }
+    .contact-info-panel > p {
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-2xl);
+      line-height: var(--lh-relaxed);
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-2xl);
+    }
+    .contact-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+    }
+    .contact-detail-item__icon {
+      flex-shrink: 0;
+      width: 46px; height: 46px;
+      border-radius: var(--radius-md);
+      background: var(--color-light-blue-gray);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-deep-blue);
+      transition: all var(--transition-base);
+    }
+    .contact-detail-item:hover .contact-detail-item__icon {
+      background: var(--color-deep-blue);
+      color: var(--color-white);
+    }
+    .contact-detail-item__icon svg { width: 20px; height: 20px; }
+    .contact-detail-item__body h4 {
+      font-size: var(--fs-small);
+      font-weight: var(--fw-semibold);
+      color: var(--color-deep-blue);
+      margin-bottom: 2px;
+    }
+    .contact-detail-item__body p,
+    .contact-detail-item__body a {
+      font-size: var(--fs-small);
+      color: var(--color-text-muted);
+      margin-bottom: 0;
+      transition: color var(--transition-fast);
+    }
+    .contact-detail-item__body a:hover { color: var(--color-aqua); }
+
+    /* WhatsApp CTA */
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: #25D366;
+      color: var(--color-white);
+      padding: 13px 28px;
+      border-radius: var(--radius-md);
+      font-weight: var(--fw-semibold);
+      font-size: var(--fs-body);
+      transition: all var(--transition-base);
+      width: 100%;
+      justify-content: center;
+    }
+    .whatsapp-btn:hover {
+      background: #1fb855;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+    }
+    .whatsapp-btn svg { width: 22px; height: 22px; }
+
+    /* Right: form card */
+    .contact-form-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl) var(--space-2xl) var(--space-2xl);
+      box-shadow: var(--shadow-md);
+    }
+    .contact-form-card h2 {
+      font-size: var(--fs-h3);
+      color: var(--color-deep-blue);
+      margin-bottom: var(--space-xl);
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-md) var(--space-lg);
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-group--full { grid-column: 1 / -1; }
+    .form-group label {
+      font-size: var(--fs-small);
+      font-weight: var(--fw-medium);
+      color: var(--color-text-primary);
+    }
+    .form-group label span { color: var(--color-aqua); margin-left: 2px; }
+    .form-group input,
+    .form-group textarea {
+      padding: 12px 16px;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: var(--fs-body);
+      color: var(--color-text-primary);
+      background: var(--color-white);
+      transition: all var(--transition-fast);
+      font-family: inherit;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-aqua);
+      box-shadow: 0 0 0 3px rgba(0,152,200,0.1);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--color-text-muted); }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-note {
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--color-off-white);
+      border-radius: var(--radius-sm);
+      border-left: 2px solid var(--color-border);
+    }
+
+    /* Distribution section */
+    .distribution-section {
+      background: var(--gradient-cta);
+      padding: var(--space-5xl) 0;
+      color: var(--color-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .distribution-section::before {
+      content: '';
+      position: absolute;
+      top: -60%; right: -15%;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,152,200,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .distribution-section .section-header { position: relative; z-index: 2; }
+    .distribution-section .section-heading { color: var(--color-white); }
+    .distribution-section .section-subheading { color: rgba(255,255,255,0.72); }
+    .distribution-cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: var(--space-md);
+      margin-bottom: var(--space-3xl);
+      position: relative;
+      z-index: 2;
+    }
+    .dist-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: var(--space-lg);
+      text-align: center;
+      transition: all var(--transition-base);
+    }
+    .dist-card:hover {
+      background: rgba(255,255,255,0.13);
+      border-color: rgba(255,255,255,0.2);
+      transform: translateY(-4px);
+    }
+    .dist-card__icon {
+      width: 42px; height: 42px;
+      margin: 0 auto var(--space-sm);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-cyan);
+    }
+    .dist-card__icon svg { width: 28px; height: 28px; }
+    .dist-card h4 {
+      font-size: var(--fs-small);
+      font-weight: var(--fw-semibold);
+      color: var(--color-white);
+    }
+
+    /* Map placeholder */
+    .map-placeholder-section {
+      height: 380px;
+      background: var(--color-light-blue-gray);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid var(--color-border-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .map-placeholder-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 30px,
+        rgba(11,61,107,0.02) 30px,
+        rgba(11,61,107,0.02) 60px
+      );
+    }
+    .map-ph-inner {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    .map-ph-inner svg {
+      width: 52px; height: 52px;
+      color: var(--color-text-muted);
+      opacity: 0.4;
+      margin-bottom: var(--space-md);
+    }
+    .map-ph-inner p {
+      font-size: var(--fs-small);
+      color: var(--color-text-muted);
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    .map-ph-inner strong {
+      display: block;
+      font-size: var(--fs-body);
+      color: var(--color-deep-blue);
+      opacity: 0.5;
+      margin-bottom: var(--space-xs);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; gap: var(--space-2xl); }
+      .form-grid { grid-template-columns: 1fr; }
+      .distribution-cards { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 425px) {
+      .distribution-cards { grid-template-columns: 1fr 1fr; }
+      .contact-form-card { padding: var(--space-xl); }
+    }
+    @media (max-width: 375px) {
+      .distribution-cards { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="Al Saudi - Home">
+        <span class="navbar__logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" fill="#024227" opacity="0.08"/>
+            <path d="M20 6C14 12 10 18 10 24a10 10 0 0020 0c0-6-4-12-10-18z" fill="#037243" opacity="0.85"/>
+            <path d="M20 10c-4 5-7 10-7 15a7 7 0 0014 0c0-5-3-10-7-15z" fill="#024227" opacity="0.2"/>
+            <ellipse cx="17" cy="22" rx="2.5" ry="1.5" fill="white" opacity="0.5"/>
+          </svg>
+        </span>
+        <span>
+          <span class="logo-brand">Al Saudi</span>
+          <span class="logo-tagline" data-i18n="hero_badge">Pure Drinking Water</span>
+        </span>
+      </a>
+      <div class="navbar__menu">
+        <a href="index.html" class="navbar__link" data-i18n="nav_home">Home</a>
+        <a href="about.html" class="navbar__link" data-i18n="nav_about">About</a>
+        <a href="products.html" class="navbar__link" data-i18n="nav_products">Products</a>
+        <a href="quality.html" class="navbar__link" data-i18n="nav_quality">Quality</a>
+        <a href="analysis.html" class="navbar__link" data-i18n="nav_analysis">Water Analysis</a>
+        <a href="contact.html" class="navbar__link active" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="navbar__actions">
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button class="lang-toggle__btn active" data-lang="en">EN</button>
+          <button class="lang-toggle__btn" data-lang="ar">العربية</button>
+        </div>
+        <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-menu__link" data-i18n="nav_home">Home</a>
+    <a href="about.html" class="mobile-menu__link" data-i18n="nav_about">About</a>
+    <a href="products.html" class="mobile-menu__link" data-i18n="nav_products">Products</a>
+    <a href="quality.html" class="mobile-menu__link" data-i18n="nav_quality">Quality</a>
+    <a href="analysis.html" class="mobile-menu__link" data-i18n="nav_analysis">Water Analysis</a>
+    <a href="contact.html" class="mobile-menu__link active" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="contact-hero" id="contact-hero">
+    <div class="contact-hero__content container">
+      <span class="section-label reveal" data-i18n="contact_label">Get in Touch</span>
+      <h1 class="section-heading reveal" style="font-size:var(--fs-display);" data-i18n="contact_heading">Get in Touch</h1>
+      <p class="section-subheading reveal" style="margin:0 auto;" data-i18n="contact_subheading">We'd love to hear from you. Reach out for inquiries, distribution, or any questions.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- LEFT: Contact info -->
+        <div class="contact-info-panel reveal">
+          <h2 data-i18n="contact_info_heading">Contact Information</h2>
+          <p data-i18n="contact_info_desc">Reach out to us through any of the following channels.</p>
+
+          <div class="contact-details">
+            <!-- Phone -->
+            <div class="contact-detail-item">
+              <div class="contact-detail-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.12 2.18 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.46-.46a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="contact-detail-item__body">
+                <h4 data-i18n="contact_phone_label">Phone</h4>
+                <a href="tel:+966920000000" data-i18n="contact_phone_value">+966 920 000 000</a>
+              </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="contact-detail-item">
+              <div class="contact-detail-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="contact-detail-item__body">
+                <h4 data-i18n="contact_whatsapp_label">WhatsApp</h4>
+                <a href="https://wa.me/966920000000" target="_blank" rel="noopener" data-i18n="contact_whatsapp_value">+966 920 000 000</a>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-detail-item">
+              <div class="contact-detail-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke-width="1.5"/>
+                  <polyline points="22,6 12,13 2,6" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="contact-detail-item__body">
+                <h4 data-i18n="contact_email_label">Email</h4>
+                <a href="mailto:info@alsaudiwater.com" data-i18n="contact_email_value">info@alsaudiwater.com</a>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="contact-detail-item">
+              <div class="contact-detail-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-width="1.5"/>
+                  <circle cx="12" cy="10" r="3" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="contact-detail-item__body">
+                <h4 data-i18n="contact_location_label">Location</h4>
+                <p data-i18n="contact_location_value">[Location to be provided]</p>
+              </div>
+            </div>
+
+            <!-- Business Hours -->
+            <div class="contact-detail-item">
+              <div class="contact-detail-item__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" stroke-width="1.5"/>
+                  <polyline points="12 6 12 12 16 14" stroke-width="1.5"/>
+                </svg>
+              </div>
+              <div class="contact-detail-item__body">
+                <h4 data-i18n="contact_hours_label">Business Hours</h4>
+                <p data-i18n="contact_hours_value">Sunday – Thursday: 8:00 AM – 5:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- WhatsApp CTA button -->
+          <a href="https://wa.me/966920000000" target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span data-i18n="contact_whatsapp_cta">Chat on WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- RIGHT: Contact form -->
+        <div class="contact-form-card reveal reveal-delay-2">
+          <h2 data-i18n="contact_form_heading">Send an Inquiry</h2>
+          <!--
+            FORM INTEGRATION NOTE:
+            ================================================================
+            This form currently uses a mailto fallback (opens email client).
+            
+            To connect a backend, replace the action and method:
+            Option 1 — Formspree: action="https://formspree.io/f/YOUR_ID" method="POST"
+            Option 2 — FormSubmit: action="https://formsubmit.co/info@alsaudiwater.com" method="POST"
+            Option 3 — Custom API: use fetch() to POST form data to your endpoint.
+            ================================================================
+          -->
+          <form id="contact-form" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="name">
+                  <span data-i18n="contact_form_name">Full Name</span><span aria-hidden="true">*</span>
+                </label>
+                <input type="text" id="name" name="name" required autocomplete="name"
+                       placeholder="Your full name"
+                       data-i18n-placeholder="contact_form_name_placeholder">
+              </div>
+
+              <div class="form-group">
+                <label for="company" data-i18n="contact_form_company">Company</label>
+                <input type="text" id="company" name="company" autocomplete="organization"
+                       placeholder="Your company name (optional)"
+                       data-i18n-placeholder="contact_form_company_placeholder">
+              </div>
+
+              <div class="form-group">
+                <label for="phone">
+                  <span data-i18n="contact_form_phone">Phone</span>
+                </label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel"
+                       placeholder="Your phone number"
+                       data-i18n-placeholder="contact_form_phone_placeholder">
+              </div>
+
+              <div class="form-group">
+                <label for="email">
+                  <span data-i18n="contact_form_email">Email</span><span aria-hidden="true">*</span>
+                </label>
+                <input type="email" id="email" name="email" required autocomplete="email"
+                       placeholder="Your email address"
+                       data-i18n-placeholder="contact_form_email_placeholder">
+              </div>
+
+              <div class="form-group form-group--full">
+                <label for="message">
+                  <span data-i18n="contact_form_message">Message</span><span aria-hidden="true">*</span>
+                </label>
+                <textarea id="message" name="message" required rows="5"
+                          placeholder="How can we help you?"
+                          data-i18n-placeholder="contact_form_message_placeholder"></textarea>
+              </div>
+            </div>
+
+            <p class="form-note">
+              Your inquiry will be sent via email. We'll respond as soon as possible during business hours.
+            </p>
+
+            <div style="margin-top: var(--space-lg);">
+              <button type="submit" class="btn btn--primary btn--lg" style="width:100%;" data-i18n="contact_form_submit">
+                Send Inquiry
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DISTRIBUTION -->
+  <section class="distribution-section" id="distribution">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal" style="color:rgba(255,255,255,0.6);" data-i18n="distribution_label">Business Partners</span>
+        <h2 class="section-heading reveal" data-i18n="distribution_heading">Looking for a Reliable Water Supplier?</h2>
+        <p class="section-subheading reveal" data-i18n="distribution_subheading">For retail, hospitality, offices and bulk requirements, contact our team to discuss your requirements.</p>
+      </div>
+      <div class="distribution-cards">
+        <div class="dist-card reveal reveal-delay-1">
+          <div class="dist-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" stroke-width="1.5"/><path d="M9 22V12h6v10" stroke-width="1.5"/></svg>
+          </div>
+          <h4 data-i18n="distribution_retailers">Retailers</h4>
+        </div>
+        <div class="dist-card reveal reveal-delay-2">
+          <div class="dist-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" stroke-width="1.5"/><line x1="6" y1="1" x2="6" y2="4" stroke-width="1.5"/><line x1="10" y1="1" x2="10" y2="4" stroke-width="1.5"/><line x1="14" y1="1" x2="14" y2="4" stroke-width="1.5"/></svg>
+          </div>
+          <h4 data-i18n="distribution_restaurants">Restaurants</h4>
+        </div>
+        <div class="dist-card reveal reveal-delay-3">
+          <div class="dist-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16" stroke-width="1.5"/><path d="M1 21h22" stroke-width="1.5"/><path d="M9 7h1M9 11h1M14 7h1M14 11h1M9 15h6v6H9z" stroke-width="1.5"/></svg>
+          </div>
+          <h4 data-i18n="distribution_hotels">Hotels</h4>
+        </div>
+        <div class="dist-card reveal reveal-delay-4">
+          <div class="dist-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" stroke-width="1.5"/><line x1="8" y1="21" x2="16" y2="21" stroke-width="1.5"/><line x1="12" y1="17" x2="12" y2="21" stroke-width="1.5"/></svg>
+          </div>
+          <h4 data-i18n="distribution_offices">Offices</h4>
+        </div>
+        <div class="dist-card reveal reveal-delay-5">
+          <div class="dist-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="1" y="3" width="15" height="13" rx="2" stroke-width="1.5"/><path d="M16 8h4l3 3v5h-7V8z" stroke-width="1.5"/><circle cx="5.5" cy="18.5" r="2.5" stroke-width="1.5"/><circle cx="18.5" cy="18.5" r="2.5" stroke-width="1.5"/></svg>
+          </div>
+          <h4 data-i18n="distribution_distributors">Distributors</h4>
+        </div>
+      </div>
+      <div style="text-align:center; position:relative; z-index:2;">
+        <a href="#contact" class="btn btn--white btn--lg" data-i18n="distribution_cta">Request an Inquiry</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP PLACEHOLDER -->
+  <div class="map-placeholder-section" role="img" aria-label="Map location placeholder — official address to be confirmed">
+    <div class="map-ph-inner">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-width="1.5"/>
+        <circle cx="12" cy="10" r="3" stroke-width="1.5"/>
+      </svg>
+      <strong>Saudi Arabia</strong>
+      <p data-i18n="contact_map_placeholder">Map location will be added once official address is confirmed.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo" aria-label="Al Saudi - Home">
+            <span class="navbar__logo-icon">
+              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <circle cx="20" cy="20" r="18" fill="white" opacity="0.08"/>
+                <path d="M20 6C14 12 10 18 10 24a10 10 0 0020 0c0-6-4-12-10-18z" fill="#037243" opacity="0.85"/>
+                <ellipse cx="17" cy="22" rx="2.5" ry="1.5" fill="white" opacity="0.5"/>
+              </svg>
+            </span>
+            <span>
+              <span class="logo-brand">Al Saudi</span>
+              <span class="logo-tagline" data-i18n="hero_badge">Pure Drinking Water</span>
+            </span>
+          </a>
+          <p data-i18n="footer_tagline">Providing pure drinking water with commitment to quality and customer satisfaction.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_col1_title">Company</h4>
+          <ul>
+            <li><a href="about.html" data-i18n="footer_about">About Us</a></li>
+            <li><a href="products.html" data-i18n="footer_products">Our Products</a></li>
+            <li><a href="quality.html" data-i18n="footer_quality">Quality</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_col2_title">Support</h4>
+          <ul>
+            <li><a href="contact.html" data-i18n="footer_contact">Contact</a></li>
+            <li><a href="https://wa.me/966920000000" target="_blank" rel="noopener" data-i18n="footer_whatsapp">WhatsApp</a></li>
+            <li><a href="#distribution" data-i18n="footer_distribution">Distribution</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_col3_title">Follow Us</h4>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke-width="1.5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p data-i18n="footer_copyright">© 2026 Al Saudi Pure Drinking Water. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

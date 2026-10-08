@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quality & Purification | Al Saudi Pure Drinking Water</title>
+  <meta name="description" content="Al Saudi Pure Drinking Water quality process — from water source to bottle, every step is focused on delivering the purest water possible.">
+
+  <meta property="og:title" content="Quality & Purification | Al Saudi Pure Drinking Water">
+  <meta property="og:description" content="From water source to bottle, every stage matters. Discover our quality process.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.alsaudiwater.com/quality.html">
+  <meta property="og:image" content="assets/images/products/bottle-1-5l.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* Quality hero */
+    .quality-hero {
+      background: var(--gradient-hero);
+      padding: calc(72px + var(--space-4xl)) 0 var(--space-5xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .quality-hero__content { position: relative; z-index: 2; }
+    .quality-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; width: 100%;
+      height: 60px;
+      background: var(--color-white);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+
+    /* Timeline section */
+    .quality-process {
+      background: var(--color-white);
+      padding: var(--space-5xl) 0;
+    }
+
+    /* Desktop horizontal timeline */
+    .timeline-outer {
+      position: relative;
+      overflow: hidden;
+    }
+    .timeline-track {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      top: 38px;
+      left: calc(100% / 12);
+      right: calc(100% / 12);
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-aqua) 0%, var(--color-deep-blue) 100%);
+      z-index: 0;
+    }
+
+    .timeline-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 var(--space-sm);
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-step__circle {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: var(--color-white);
+      border: 2px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: var(--space-lg);
+      transition: all var(--transition-smooth);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .timeline-step.is-active .timeline-step__circle {
+      background: var(--gradient-blue);
+      border-color: var(--color-deep-blue);
+      box-shadow: 0 8px 24px rgba(11,61,107,0.22);
+    }
+    .timeline-step__num {
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-bold);
+      color: var(--color-text-muted);
+      line-height: 1;
+    }
+    .timeline-step.is-active .timeline-step__num { color: rgba(255,255,255,0.7); }
+    .timeline-step__icon {
+      color: var(--color-aqua);
+      display: flex;
+    }
+    .timeline-step.is-active .timeline-step__icon { color: var(--color-white); }
+    .timeline-step__icon svg { width: 22px; height: 22px; }
+
+    .timeline-step__title {
+      font-size: var(--fs-small);
+      font-weight: var(--fw-semibold);
+      color: var(--color-deep-blue);
+      margin-bottom: var(--space-xs);
+    }
+    .timeline-step__desc {
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    /* Quality commitment section */
+    .quality-commitment {
+      background: var(--color-off-white);
+      padding: var(--space-5xl) 0;
+    }
+    .commitment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-xl);
+      margin-top: var(--space-3xl);
+    }
+    .commitment-card {
+      background: var(--color-white);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      transition: all var(--transition-smooth);
+    }
+    .commitment-card:hover {
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-4px);
+    }
+    .commitment-card__icon {
+      width: 52px; height: 52px;
+      border-radius: var(--radius-lg);
+      background: var(--color-light-blue-gray);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-deep-blue);
+      margin-bottom: var(--space-lg);
+      transition: all var(--transition-base);
+    }
+    .commitment-card:hover .commitment-card__icon {
+      background: var(--color-deep-blue);
+      color: var(--color-white);
+    }
+    .commitment-card__icon svg { width: 26px; height: 26px; }
+    .commitment-card h3 {
+      font-size: var(--fs-h4);
+      font-weight: var(--fw-bold);
+      color: var(--color-deep-blue);
+      margin-bottom: var(--space-sm);
+    }
+    .commitment-card p {
+      font-size: var(--fs-small);
+      color: var(--color-text-muted);
+      line-height: var(--lh-relaxed);
+      margin-bottom: 0;
+    }
+
+    /* CTA Banner */
+    .quality-cta {
+      background: var(--gradient-blue);
+      padding: var(--space-4xl) 0;
+      text-align: center;
+      color: var(--color-white);
+    }
+    .quality-cta h2 {
+      font-size: var(--fs-h2);
+      color: var(--color-white);
+      margin-bottom: var(--space-md);
+    }
+    .quality-cta p {
+      color: rgba(255,255,255,0.75);
+      margin-bottom: var(--space-xl);
+      font-size: var(--fs-body-lg);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 1024px) {
+      .timeline-track {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl) var(--space-lg);
+      }
+      .timeline-track::before { display: none; }
+      .commitment-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .timeline-track { grid-template-columns: 1fr 1fr; }
+      .commitment-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 425px) {
+      .timeline-track { grid-template-columns: 1fr; }
+      .timeline-step { flex-direction: row; text-align: left; gap: var(--space-md); padding: var(--space-sm) 0; }
+      .timeline-step__circle { flex-shrink: 0; margin-bottom: 0; width: 60px; height: 60px; }
+      .timeline-step__text { }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="Al Saudi - Home">
+        <span class="navbar__logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" fill="#024227" opacity="0.08"/>
+            <path d="M20 6C14 12 10 18 10 24a10 10 0 0020 0c0-6-4-12-10-18z" fill="#037243" opacity="0.85"/>
+            <path d="M20 10c-4 5-7 10-7 15a7 7 0 0014 0c0-5-3-10-7-15z" fill="#024227" opacity="0.2"/>
+            <ellipse cx="17" cy="22" rx="2.5" ry="1.5" fill="white" opacity="0.5"/>
+          </svg>
+        </span>
+        <span>
+          <span class="logo-brand">Al Saudi</span>
+          <span class="logo-tagline" data-i18n="hero_badge">Pure Drinking Water</span>
+        </span>
+      </a>
+      <div class="navbar__menu">
+        <a href="index.html" class="navbar__link" data-i18n="nav_home">Home</a>
+        <a href="about.html" class="navbar__link" data-i18n="nav_about">About</a>
+        <a href="products.html" class="navbar__link" data-i18n="nav_products">Products</a>
+        <a href="quality.html" class="navbar__link active" data-i18n="nav_quality">Quality</a>
+        <a href="analysis.html" class="navbar__link" data-i18n="nav_analysis">Water Analysis</a>
+        <a href="contact.html" class="navbar__link" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="navbar__actions">
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button class="lang-toggle__btn active" data-lang="en">EN</button>
+          <button class="lang-toggle__btn" data-lang="ar">العربية</button>
+        </div>
+        <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-menu__link" data-i18n="nav_home">Home</a>
+    <a href="about.html" class="mobile-menu__link" data-i18n="nav_about">About</a>
+    <a href="products.html" class="mobile-menu__link" data-i18n="nav_products">Products</a>
+    <a href="quality.html" class="mobile-menu__link active" data-i18n="nav_quality">Quality</a>
+    <a href="analysis.html" class="mobile-menu__link" data-i18n="nav_analysis">Water Analysis</a>
+    <a href="contact.html" class="mobile-menu__link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="quality-hero" id="quality-hero">
+    <div class="quality-hero__content container">
+      <span class="section-label reveal" data-i18n="quality_label">Our Process</span>
+      <h1 class="section-heading reveal" style="font-size:var(--fs-display);" data-i18n="quality_heading">Quality at Every Step</h1>
+      <p class="section-subheading reveal" style="margin:0 auto;" data-i18n="quality_subheading">From water source to bottle, every stage matters.</p>
+    </div>
+  </section>
+
+  <!-- PROCESS TIMELINE -->
+  <section class="quality-process" id="quality-process">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal">The Process</span>
+        <h2 class="section-heading reveal">How We Ensure Quality</h2>
+        <p class="section-subheading reveal" style="margin:0 auto;">Each stage of our process is designed with purity and care in mind.</p>
+      </div>
+
+      <div class="timeline-outer">
+        <div class="timeline-track" id="quality-timeline">
+
+          <!-- Step 1 -->
+          <div class="timeline-step quality__step reveal reveal-delay-1" id="step-1">
+            <div class="timeline-step__circle">
+              <span class="timeline-step__num">01</span>
+              <span class="timeline-step__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-width="1.5"/>
+                  <path d="M12 6v6l4 2" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </div>
+            <div class="timeline-step__text">
+              <h3 class="timeline-step__title" data-i18n="quality_step_1_title">Water Source</h3>
+              <p class="timeline-step__desc" data-i18n="quality_step_1_desc">Sourced from carefully selected water supplies.</p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step quality__step reveal reveal-delay-2" id="step-2">
+            <div class="timeline-step__circle">
+              <span class="timeline-step__num">02</span>
+              <span class="timeline-step__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M22 3H2l8 9.46V19l4 2v-8.54z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </div>
+            <div class="timeline-step__text">
+              <h3 class="timeline-step__title" data-i18n="quality_step_2_title">Filtration</h3>
+              <p class="timeline-step__desc" data-i18n="quality_step_2_desc">Multiple filtration stages to remove impurities.</p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step quality__step reveal reveal-delay-3" id="step-3">
+            <div class="timeline-step__circle">
+              <span class="timeline-step__num">03</span>
+              <span class="timeline-step__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M12 2C8 8 5 13 5 17a7 7 0 0014 0c0-4-3-9-7-15z" stroke-width="1.5"/>
+                  <path d="M9 14a4 4 0 004 3" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </div>
+            <div class="timeline-step__text">
+              <h3 class="timeline-step__title" data-i18n="quality_step_3_title">Purification</h3>
+              <p class="timeline-step__desc" data-i18n="quality_step_3_desc">Advanced purification for clean, pure water.</p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step quality__step reveal reveal-delay-4" id="step-4">
+            <div class="timeline-step__circle">
+              <span class="timeline-step__num">04</span>
+              <span class="timeline-step__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M9 12l2 2 4-4" stroke-width="1.5" stroke-linecap="round"/>
+                  <circle cx="12" cy="12" r="10" stroke-width="1.5"/>
+                </svg>
+              </span>
+            </div>
+            <div class="timeline-step__text">
+              <h3 class="timeline-step__title" data-i18n="quality_step_4_title">Quality Testing</h3>
+              <p class="timeline-step__desc" data-i18n="quality_step_4_desc">Rigorous testing to ensure quality standards.</p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="timeline-step quality__step reveal reveal-delay-5" id="step-5">
+            <div class="timeline-step__circle">
+              <span class="timeline-step__num">05</span>
+              <span class="timeline-step__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M10 12v4M14 12v4" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </div>
+            <div class="timeline-step__text">
+              <h3 class="timeline-step__title" data-i18n="quality_step_5_title">Bottling</h3>
+              <p class="timeline-step__desc" data-i18n="quality_step_5_desc">Hygienic bottling in a controlled environment.</p>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="timeline-step quality__step reveal" style="transition-delay:0.6s" id="step-6">
+            <div class="timeline-step__circle">
+              <span class="timeline-step__num">06</span>
+              <span class="timeline-step__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <rect x="1" y="3" width="15" height="13" rx="2" stroke-width="1.5"/>
+                  <path d="M16 8h4l3 3v5h-7V8z" stroke-width="1.5"/>
+                  <circle cx="5.5" cy="18.5" r="2.5" stroke-width="1.5"/>
+                  <circle cx="18.5" cy="18.5" r="2.5" stroke-width="1.5"/>
+                </svg>
+              </span>
+            </div>
+            <div class="timeline-step__text">
+              <h3 class="timeline-step__title" data-i18n="quality_step_6_title">Distribution</h3>
+              <p class="timeline-step__desc" data-i18n="quality_step_6_desc">Safe storage and delivery to customers.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMITMENT CARDS -->
+  <section class="quality-commitment" id="quality-commitment">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label reveal">Our Standards</span>
+        <h2 class="section-heading reveal">Our Commitment to You</h2>
+        <p class="section-subheading reveal" style="margin:0 auto;">We are committed to delivering water you can trust.</p>
+      </div>
+      <div class="commitment-grid">
+        <div class="commitment-card reveal reveal-delay-1">
+          <div class="commitment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Consistent Quality</h3>
+          <p>We maintain consistent quality standards throughout our entire process, from source to bottle.</p>
+        </div>
+        <div class="commitment-card reveal reveal-delay-2">
+          <div class="commitment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M12 2C8 8 5 13 5 17a7 7 0 0014 0c0-4-3-9-7-15z" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Purity Focused</h3>
+          <p>Every step of our process is designed with one goal: delivering the purest water possible.</p>
+        </div>
+        <div class="commitment-card reveal reveal-delay-3">
+          <div class="commitment-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke-width="1.5"/>
+              <path d="M9 12l2 2 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Hygiene Standards</h3>
+          <p>Our bottling and packaging processes follow strict hygiene practices to ensure safe delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="quality-cta" id="quality-cta">
+    <div class="container">
+      <h2>See Our Water Analysis</h2>
+      <p>View detailed water quality information for our products.</p>
+      <div class="btn-group" style="justify-content:center;">
+        <a href="analysis.html" class="btn btn--white btn--lg" data-i18n="nav_analysis">Water Analysis</a>
+        <a href="contact.html" class="btn btn--ghost btn--lg" data-i18n="nav_contact">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo" aria-label="Al Saudi - Home">
+            <span class="navbar__logo-icon">
+              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <circle cx="20" cy="20" r="18" fill="white" opacity="0.08"/>
+                <path d="M20 6C14 12 10 18 10 24a10 10 0 0020 0c0-6-4-12-10-18z" fill="#037243" opacity="0.85"/>
+                <ellipse cx="17" cy="22" rx="2.5" ry="1.5" fill="white" opacity="0.5"/>
+              </svg>
+            </span>
+            <span>
+              <span class="logo-brand">Al Saudi</span>
+              <span class="logo-tagline" data-i18n="hero_badge">Pure Drinking Water</span>
+            </span>
+          </a>
+          <p data-i18n="footer_tagline">Providing pure drinking water with commitment to quality and customer satisfaction.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_col1_title">Company</h4>
+          <ul>
+            <li><a href="about.html" data-i18n="footer_about">About Us</a></li>
+            <li><a href="products.html" data-i18n="footer_products">Our Products</a></li>
+            <li><a href="quality.html" data-i18n="footer_quality">Quality</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_col2_title">Support</h4>
+          <ul>
+            <li><a href="contact.html" data-i18n="footer_contact">Contact</a></li>
+            <li><a href="https://wa.me/966920000000" target="_blank" rel="noopener" data-i18n="footer_whatsapp">WhatsApp</a></li>
+            <li><a href="contact.html" data-i18n="footer_distribution">Distribution</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_col3_title">Follow Us</h4>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke-width="1.5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p data-i18n="footer_copyright">© 2026 Al Saudi Pure Drinking Water. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Animate timeline steps sequentially on scroll
+    (function () {
+      const steps = document.querySelectorAll('.timeline-step');
+      if (!steps.length) return;
+      const observer = new IntersectionObserver((entries) => {
+        if (entries.some(e => e.isIntersecting)) {
+          steps.forEach((step, i) => {
+            setTimeout(() => step.classList.add('is-active'), i * 220);
+          });
+          observer.disconnect();
+        }
+      }, { threshold: 0.2 });
+      const timeline = document.getElementById('quality-timeline');
+      if (timeline) observer.observe(timeline);
+    })();
+  </script>
+</body>
+</html>

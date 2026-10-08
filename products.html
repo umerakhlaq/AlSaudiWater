@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Products | Al Saudi Pure Drinking Water</title>
+  <meta name="description" content="Al Saudi Pure Drinking Water — available in 1.5L. Pure drinking water designed for everyday hydration, families, offices, restaurants and more.">
+
+  <meta property="og:title" content="Our Products | Al Saudi Pure Drinking Water">
+  <meta property="og:description" content="Pure drinking water designed for everyday life. Available in 1.5L.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.alsaudiwater.com/products.html">
+  <meta property="og:image" content="assets/images/products/bottle-1-5l.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+
+  <style>
+    /* Products page hero */
+    .products-hero {
+      background: var(--gradient-hero);
+      padding: calc(72px + var(--space-4xl)) 0 var(--space-4xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .products-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; width: 100%;
+      height: 60px;
+      background: var(--color-white);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .products-hero__content { position: relative; z-index: 2; }
+
+    /* Products grid section */
+    .products-list {
+      background: var(--color-white);
+      padding: var(--space-5xl) 0;
+    }
+    .products__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-2xl);
+      max-width: 1000px;
+      margin: 0 auto;
+      justify-items: center;
+    }
+
+    /* Product detail panel */
+    .product-detail-panel {
+      display: none;
+      background: var(--color-off-white);
+      padding: var(--space-5xl) 0;
+    }
+    .product-detail-panel.active {
+      display: block;
+    }
+    .product-detail-panel__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+      align-items: center;
+    }
+    .product-detail-panel__image-wrap {
+      background: var(--gradient-hero);
+      border-radius: var(--radius-xl);
+      padding: var(--space-3xl) var(--space-2xl);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+    .product-detail-panel__image-wrap img {
+      max-height: 460px;
+      width: auto;
+      object-fit: contain;
+    }
+    .product-detail-panel__info { }
+    .product-detail-panel__back {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: var(--fs-small);
+      font-weight: var(--fw-medium);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      margin-bottom: var(--space-xl);
+      transition: color var(--transition-fast);
+    }
+    .product-detail-panel__back:hover { color: var(--color-deep-blue); }
+    .product-detail-panel__back svg { width: 16px; height: 16px; }
+
+    .product-detail-panel__type {
+      display: inline-block;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      color: var(--color-aqua);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+    }
+    .product-detail-panel__name {
+      font-size: var(--fs-h2);
+      font-weight: var(--fw-extrabold);
+      color: var(--color-deep-blue);
+      margin-bottom: var(--space-sm);
+    }
+    .product-detail-panel__size {
+      display: inline-block;
+      background: rgba(0,152,200,0.08);
+      color: var(--color-aqua);
+      font-size: var(--fs-body);
+      font-weight: var(--fw-semibold);
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-lg);
+    }
+    .product-detail-panel__desc {
+      font-size: var(--fs-body-lg);
+      color: var(--color-text-secondary);
+      line-height: var(--lh-relaxed);
+      margin-bottom: var(--space-2xl);
+    }
+    .product-specs-table {
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: var(--space-2xl);
+    }
+    .product-specs-table__head {
+      background: var(--color-off-white);
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--fs-small);
+      font-weight: var(--fw-semibold);
+      color: var(--color-deep-blue);
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      padding: var(--space-md) var(--space-lg);
+      border-bottom: 1px solid var(--color-border-light);
+      font-size: var(--fs-small);
+    }
+    .spec-row:last-child { border-bottom: none; }
+    .spec-row dt { color: var(--color-text-muted); }
+    .spec-row dd { font-weight: var(--fw-medium); color: var(--color-text-primary); }
+
+    /* CTA strip */
+    .products-cta-strip {
+      background: var(--gradient-section-alt);
+      border-top: 1px solid var(--color-border-light);
+      padding: var(--space-4xl) 0;
+      text-align: center;
+    }
+    .products-cta-strip h2 {
+      font-size: var(--fs-h2);
+      color: var(--color-deep-blue);
+      margin-bottom: var(--space-md);
+    }
+    .products-cta-strip p {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-xl);
+      font-size: var(--fs-body-lg);
+    }
+
+    @media (max-width: 768px) {
+      .product-detail-panel__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+      }
+      .product-detail-panel__image-wrap img { max-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container navbar__inner">
+      <a href="index.html" class="navbar__logo" aria-label="Al Saudi - Home">
+        <span class="navbar__logo-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="18" fill="#024227" opacity="0.08"/>
+            <path d="M20 6C14 12 10 18 10 24a10 10 0 0020 0c0-6-4-12-10-18z" fill="#037243" opacity="0.85"/>
+            <path d="M20 10c-4 5-7 10-7 15a7 7 0 0014 0c0-5-3-10-7-15z" fill="#024227" opacity="0.2"/>
+            <ellipse cx="17" cy="22" rx="2.5" ry="1.5" fill="white" opacity="0.5"/>
+          </svg>
+        </span>
+        <span>
+          <span class="logo-brand">Al Saudi</span>
+          <span class="logo-tagline" data-i18n="hero_badge">Pure Drinking Water</span>
+        </span>
+      </a>
+      <div class="navbar__menu">
+        <a href="index.html" class="navbar__link" data-i18n="nav_home">Home</a>
+        <a href="about.html" class="navbar__link" data-i18n="nav_about">About</a>
+        <a href="products.html" class="navbar__link active" data-i18n="nav_products">Products</a>
+        <a href="quality.html" class="navbar__link" data-i18n="nav_quality">Quality</a>
+        <a href="analysis.html" class="navbar__link" data-i18n="nav_analysis">Water Analysis</a>
+        <a href="contact.html" class="navbar__link" data-i18n="nav_contact">Contact</a>
+      </div>
+      <div class="navbar__actions">
+        <div class="lang-toggle" role="group" aria-label="Language selection">
+          <button class="lang-toggle__btn active" data-lang="en">EN</button>
+          <button class="lang-toggle__btn" data-lang="ar">العربية</button>
+        </div>
+        <button class="navbar__hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="index.html" class="mobile-menu__link" data-i18n="nav_home">Home</a>
+    <a href="about.html" class="mobile-menu__link" data-i18n="nav_about">About</a>
+    <a href="products.html" class="mobile-menu__link active" data-i18n="nav_products">Products</a>
+    <a href="quality.html" class="mobile-menu__link" data-i18n="nav_quality">Quality</a>
+    <a href="analysis.html" class="mobile-menu__link" data-i18n="nav_analysis">Water Analysis</a>
+    <a href="contact.html" class="mobile-menu__link" data-i18n="nav_contact">Contact</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="products-hero" id="products-hero">
+    <div class="products-hero__content container">
+      <span class="section-label reveal" data-i18n="products_label">Our Products</span>
+      <h1 class="section-heading reveal" style="font-size: var(--fs-display);" data-i18n="products_heading">Our Products</h1>
+      <p class="section-subheading reveal" style="margin:0 auto;" data-i18n="products_subheading">Pure drinking water designed for everyday life.</p>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="products-list" id="products-grid-section">
+    <div class="container">
+      <div class="products__grid">
+
+        <!-- Product Card: 1.5L -->
+        <article class="product-card reveal">
+          <div class="product-card__image">
+            <img src="assets/images/products/bottle-1-5l.jpg"
+                 alt="Al Saudi Pure Drinking Water 1.5L bottle"
+                 loading="lazy">
+          </div>
+          <div class="product-card__body">
+            <span class="product-card__size" data-i18n="product_1_size">1.5L</span>
+            <h2 class="product-card__name" data-i18n="product_1_name">Al Saudi Pure Drinking Water</h2>
+            <p class="product-card__desc" data-i18n="product_1_desc">Pure drinking water designed for everyday hydration.</p>
+            <button class="btn btn--primary" id="view-product-btn" data-product-view="1" aria-label="View Al Saudi 1.5L product details" data-i18n="product_view">
+              View Product
+            </button>
+          </div>
+        </article>
+
+        <!--
+          PLACEHOLDER: Additional product cards to be added here.
+          Structure mirrors the card above. Each card requires:
+          - Product image in assets/images/products/
+          - Confirmed bottle size from the client
+          - Official product name and description
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT DETAIL PANEL -->
+  <section class="product-detail-panel" id="product-detail" aria-live="polite">
+    <div class="container">
+      <div class="product-detail-panel__inner">
+        <!-- Image -->
+        <div class="product-detail-panel__image-wrap">
+          <img src="assets/images/products/bottle-1-5l.jpg"
+               alt="Al Saudi Pure Drinking Water 1.5L — front view"
+               loading="lazy">
+        </div>
+
+        <!-- Info -->
+        <div class="product-detail-panel__info">
+          <button class="product-detail-panel__back" id="back-to-products" data-back-products aria-label="Back to products list">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n="back_to_products">Back to Products</span>
+          </button>
+
+          <span class="product-detail-panel__type" data-i18n="hero_badge">Pure Drinking Water</span>
+          <h1 class="product-detail-panel__name" data-i18n="product_1_name">Al Saudi Pure Drinking Water</h1>
+          <span class="product-detail-panel__size" data-i18n="product_1_size">1.5L</span>
+          <p class="product-detail-panel__desc" data-i18n="product_1_desc">Pure drinking water designed for everyday hydration.</p>
+
+          <!-- Specifications -->
+          <div class="product-specs-table" role="table" aria-label="Product specifications">
+            <div class="product-specs-table__head" data-i18n="product_specs">Specifications</div>
+            <dl>
+              <div class="spec-row" role="row">
+                <dt data-i18n="product_spec_size">Bottle Size</dt>
+                <dd>1.5L</dd>
+              </div>
+              <div class="spec-row" role="row">
+                <dt data-i18n="product_spec_type_label">Type</dt>
+                <dd data-i18n="product_spec_type">Pure Drinking Water</dd>
+              </div>
+              <div class="spec-row" role="row">
+                <dt>Label</dt>
+                <dd>مياه شرب نقية / Pure Drinking Water</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="btn-group">
+            <a href="contact.html" class="btn btn--primary btn--lg" data-i18n="product_contact">Contact for Availability</a>
+            <a href="analysis.html" class="btn btn--secondary" data-i18n="nav_analysis">Water Analysis</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B CTA -->
+  <section class="products-cta-strip">
+    <div class="container">
+      <span class="section-label" data-i18n="distribution_label">Business Partners</span>
+      <h2 data-i18n="distribution_heading">Looking for a Reliable Water Supplier?</h2>
+      <p data-i18n="distribution_subheading">For retail, hospitality, offices and bulk requirements, contact our team.</p>
+      <a href="contact.html" class="btn btn--primary btn--lg" data-i18n="distribution_cta">Request an Inquiry</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo" aria-label="Al Saudi - Home">
+            <span class="navbar__logo-icon">
+              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                <circle cx="20" cy="20" r="18" fill="white" opacity="0.08"/>
+                <path d="M20 6C14 12 10 18 10 24a10 10 0 0020 0c0-6-4-12-10-18z" fill="#037243" opacity="0.85"/>
+                <ellipse cx="17" cy="22" rx="2.5" ry="1.5" fill="white" opacity="0.5"/>
+              </svg>
+            </span>
+            <span>
+              <span class="logo-brand">Al Saudi</span>
+              <span class="logo-tagline" data-i18n="hero_badge">Pure Drinking Water</span>
+            </span>
+          </a>
+          <p data-i18n="footer_tagline">Providing pure drinking water with commitment to quality and customer satisfaction.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_col1_title">Company</h4>
+          <ul>
+            <li><a href="about.html" data-i18n="footer_about">About Us</a></li>
+            <li><a href="products.html" data-i18n="footer_products">Our Products</a></li>
+            <li><a href="quality.html" data-i18n="footer_quality">Quality</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_col2_title">Support</h4>
+          <ul>
+            <li><a href="contact.html" data-i18n="footer_contact">Contact</a></li>
+            <li><a href="https://wa.me/966920000000" target="_blank" rel="noopener" data-i18n="footer_whatsapp">WhatsApp</a></li>
+            <li><a href="contact.html" data-i18n="footer_distribution">Distribution</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_col3_title">Follow Us</h4>
+          <div class="footer__social">
+            <a href="#" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke-width="1.5"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p data-i18n="footer_copyright">© 2026 Al Saudi Pure Drinking Water. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/translations.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Product detail toggle (inline for products page)
+    (function () {
+      const viewBtn = document.getElementById('view-product-btn');
+      const detailPanel = document.getElementById('product-detail');
+      const gridSection = document.getElementById('products-grid-section');
+      const backBtn = document.getElementById('back-to-products');
+
+      function showDetail() {
+        gridSection.style.display = 'none';
+        detailPanel.classList.add('active');
+        const navbar = document.querySelector('.navbar');
+        const offset = (navbar ? navbar.offsetHeight : 72) + 20;
+        window.scrollTo({ top: detailPanel.offsetTop - offset, behavior: 'smooth' });
+      }
+
+      function showGrid() {
+        detailPanel.classList.remove('active');
+        gridSection.style.display = '';
+        const navbar = document.querySelector('.navbar');
+        const offset = (navbar ? navbar.offsetHeight : 72) + 20;
+        window.scrollTo({ top: gridSection.offsetTop - offset, behavior: 'smooth' });
+      }
+
+      if (viewBtn) viewBtn.addEventListener('click', showDetail);
+      if (backBtn) backBtn.addEventListener('click', showGrid);
+    })();
+  </script>
+</body>
+</html>
